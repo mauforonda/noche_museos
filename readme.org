@@ -2,5 +2,5 @@ Cronograma simple de los eventos en la Noche de Museos Bolivia 2020.
 
 [[screen.png]]
 
-Puedes ver el sitio [[https://mauforonda.github.io/noche_museos][acá]]
+Puedes ver el sitio [[https://mauforonda.github.io/noche_museos/][acá]]
 

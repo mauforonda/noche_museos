@@ -5,16 +5,52 @@ function make_node(el, c, text){
   return node
 };
 
+function make_stream_text(stream_href){
+  // link_base = stream_href.split('/')[2].split('.')
+  // return link_base[link_base.length - 2]
+  if (stream_href.includes('facebook')) {
+    return 'facebook'
+  } else if (stream_href.includes('instagram')){
+    return 'instagram'
+  } else if (stream_href.includes('youtube')){
+    return 'youtube'
+  } else if (stream_href.includes('zoom')){
+    return 'zoom'
+  } else {
+    return 'Nah'
+  }
+}
+
+function make_stream_link(stream_text, stream_href){
+  link_node = document.createElement('a')
+  link_node.className = 'stream'
+  link_node.href = stream_href
+  link_node.target = '_blank'
+  link_node.textContent = stream_text
+  return link_node
+}
+
+function make_stream_node(stream){
+  stream_text = make_stream_text(stream)
+  if (stream_text != 'Nah') {
+    time_node.appendChild(make_stream_link(stream_text, stream))
+  }
+}
+
 function display_event(evento, dia){
-  event_node = document.createElement('a')
-  event_node.href = evento['link']
-  event_node.target = '_blank'
+  event_node = document.createElement('div')
+  // event_node.href = evento['link']
+  // event_node.target = '_blank'
   event_node.className = 'evento'
   time_node = document.createElement('div')
   time_node.className = 'tiempo'
   time_node.appendChild(make_node('span', 'dia', dia))
   time_node.appendChild(make_node('span', 'hora', evento['hora']))
   time_node.appendChild(make_node('span', 'ciudad', evento['ciudad']))
+  time_node.appendChild(make_stream_link('minculturas', evento['link']))
+  evento['streams'].forEach((stream) => {
+    make_stream_node(stream)
+  })
   event_node.appendChild(time_node)
   event_node.appendChild(make_node('div', 'titulo', evento['título']))
   event_node.appendChild(make_node('div', 'descripcion', evento['descripción']))

@@ -4,7 +4,7 @@ body {
   flex-direction: row;
   justify-content: center;
   position: relative;
-  font-size:15px;
+  font-size:13px;
   width:100%;
   margin: 0;
   padding: 0;
@@ -50,6 +50,7 @@ a{
 }
 
 .evento{
+  color: #fff;
   padding:20px;
   background: #191922;
   margin: 10px;
@@ -66,14 +67,25 @@ a{
   padding: 5px 1px;
   border-radius: 5px;
   width: auto;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.tiempo span {
+.tiempo span, .tiempo a {
+  color: #fff;
   font-size: 0.9em;
   padding: 1px 7px;
   margin: 5px;
   background: #776bb15e;
   border-radius: 2px;
+}
+
+.stream{
+  background: #c46c5196 !important;
+}
+
+.stream:hover{
+  background: #ea5e35 !important;
 }
 
 .titulo {
